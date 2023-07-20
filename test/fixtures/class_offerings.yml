@@ -1,0 +1,23 @@
+# Read about fixtures at https://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  code: 1
+  name: MyString
+  max_students: 1
+  start_time: 2023-07-20 14:03:12
+  end_time: 2023-07-20 14:03:12
+  credits: 1
+  level: 1
+  schedule: MyString
+  department: one
+
+two:
+  code: 1
+  name: MyString
+  max_students: 1
+  start_time: 2023-07-20 14:03:12
+  end_time: 2023-07-20 14:03:12
+  credits: 1
+  level: 1
+  schedule: MyString
+  department: two
