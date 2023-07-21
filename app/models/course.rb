@@ -1,5 +1,4 @@
 class Course < ApplicationRecord
   belongs_to :department
-  has_many :teachers
-  has_many :students
+  has_many :course_offerings
 end
