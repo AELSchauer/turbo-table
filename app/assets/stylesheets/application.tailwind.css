@@ -1,3 +1,26 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+.pagination {
+  list-style: none;
+  padding: 0;
+  margin: 1.5rem 0;
+  li {
+    display: inline-block;
+    &.active {
+      a {
+        background-color: #3f8fec;
+        color: #fff;
+      }
+    }
+    a {
+      padding: .5rem;
+      color: #3f8fec;
+      text-decoration: none;
+      &:hover {
+        text-decoration: underline;
+      }
+    }
+  }
+}

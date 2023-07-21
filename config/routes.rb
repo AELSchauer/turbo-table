@@ -5,6 +5,9 @@ Rails.application.routes.draw do
   root "courses#index"
 
   resources :courses, only: [:index] do
-    collection { get :filter, to: "courses#filter" }
+    collection do
+      get "filter/:attr", to: "courses/filter#show", as: "filter"
+      get "sort", to: "courses/sort#show"
+    end
   end
 end
