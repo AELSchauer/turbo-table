@@ -5,8 +5,5 @@ class CoursesController < ApplicationController
       .order("schools.name ASC", "departments.code ASC", "course_number ASC")
       .limit(50)
   end
-
-  def filter
-  end
 end
 
