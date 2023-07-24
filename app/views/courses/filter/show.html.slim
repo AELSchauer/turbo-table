@@ -1,3 +1,2 @@
-main
-  = form_with url: root_path, method: :get, data: {turbo_frame: "_top", turbo_action: "advance"} do
-    = render params[:attr], params: params
+= turbo_frame_tag "modal"
+  = render params[:attr], params: params
