@@ -41,3 +41,10 @@ div[class="relative overflow-x-auto"]
       tr
         td.text-center[colspan="6"]
           = paginate @courses
+
+= link_to "#", data: { action: "click->modal#open" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-3 px-6 rounded" do
+  span Open Modal
+
+div[data-controller="hello"]
+  input[type="text" data-hello-target="name"]
+  button[data-action="click->hello#greet"] Greet
