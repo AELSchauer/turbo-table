@@ -1,14 +1,14 @@
-table[class="#{hidden ? 'hidden' : ''}" data-controller="hello"]
+table[class="#{hidden ? 'hidden' : ''}" data-controller="select-all-checkboxes"]
   - all_credits = Course.pluck(:credits).sort.uniq
   - selected_credits = params.dig(:filter, :credits).present? ? params[:filter][:credits].keys.map(&:to_i).sort : all_credits
   tr
     td
-      = check_box_tag "select_all", 1, all_credits == selected_credits, data: {'hello-target': "toggleCheckbox", action: "click->hello#toggle_select_all_checkbox"}
+      = check_box_tag "select_all", 1, all_credits == selected_credits, data: {'select-all-checkboxes-target': "toggleCheckbox", action: "click->select-all-checkboxes#toggle_select_all_checkbox"}
     td
       = label_tag "select_all", "Select All"
   - all_credits.each do |option|
     tr
       td
-        = check_box_tag "filter[credits][#{option}]", 1, selected_credits.include?(option), hidden: hidden, data: {'hello-target': "checkbox", action: "click->hello#toggle_option_checkbox"}
+        = check_box_tag "filter[credits][#{option}]", 1, selected_credits.include?(option), hidden: hidden, data: {'select-all-checkboxes-target': "checkbox", action: "click->select-all-checkboxes#toggle_option_checkbox"}
       td 
         = label_tag "filter[credits][#{option}]", option

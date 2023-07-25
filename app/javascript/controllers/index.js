@@ -4,8 +4,8 @@
 
 import { application } from "./application"
 
-import HelloController from "./hello_controller"
-application.register("hello", HelloController)
+import SelectAllCheckboxesController from "./select_all_checkboxes_controller"
+application.register("select-all-checkboxes", SelectAllCheckboxesController)
 
 import { Modal } from "tailwindcss-stimulus-components"
 application.register('modal', Modal)
