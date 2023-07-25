@@ -5,7 +5,7 @@
         h2.text-xl.mb-4
           | Filter by #{params[:attr].titleize}
       = form_with url: root_path, method: :get, data: {turbo_frame: "_top", turbo_action: "advance"} do
-        - params[:filter].reject {|k,v| k == params[:attr] }.each do |key, val|
+        - (params[:filter]|| {}).reject {|k,v| k == params[:attr] }.each do |key, val|
           = render key, params: params, hidden: true
         = render params[:attr], params: params, hidden: false
         .flex.justify-end.items-center.flex-wrap.mt-6
