@@ -4,6 +4,8 @@ class Courses::FilterController < ApplicationController
   end
 
   def filter_params
+    params.dig(:filter).try(:permit!)
     params.dig(:filter, :credits).try(:permit!)
+    params.dig(:filter, :department).try(:permit!)
   end
 end

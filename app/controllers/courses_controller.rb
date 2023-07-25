@@ -15,7 +15,7 @@ class CoursesController < ApplicationController
   end
 
   def filter_courses
-    params.try(:[], :filter).try(:permit!)
+    params.dig(:filter).try(:permit!)
 
     filter_by_credits if params.dig(:filter, :credits).present?
     filter_by_department if params.dig(:filter, :department).present?

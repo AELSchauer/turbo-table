@@ -1,9 +1,9 @@
-table
+table[class="#{hidden ? 'hidden' : ''}"]
   - all_credits = Course.pluck(:credits).sort.uniq
-  - selected_credits = params.try(:[], :filter).try(:[], :credits).present? ? params[:filter][:credits].keys.map(&:to_i) : all_credits
+  - selected_credits = params.dig(:filter, :credits).present? ? params[:filter][:credits].keys.map(&:to_i) : all_credits
   - all_credits.each do |option|
     tr
       td
-        = check_box_tag "filter[credits][#{option}]", 1, selected_credits.include?(option)
+        = check_box_tag "filter[credits][#{option}]", 1, selected_credits.include?(option), hidden: hidden
       td 
         = label_tag "filter[credits][#{option}]", option
