@@ -1,0 +1,14 @@
+= select_tag "filter[department]", grouped_options_for_select(School.dropdown_options), multiple: true, id: "department_select"
+
+css:
+  #department_select {
+    height: 500px;
+  }
+
+  optgroup {
+    background-color: #ddd;
+  }
+
+  option {
+    background: #fff;
+  }

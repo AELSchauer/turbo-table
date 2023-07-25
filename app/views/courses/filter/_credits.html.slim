@@ -1,19 +1,9 @@
-.max-h-screen.w-full.max-w-lg.relative
-  .p-6.bg-white.rounded.shadow
-    .px-8
-      h2.text-xl.mb-4
-        | Filter by Course Credits
-    = form_with url: root_path, method: :get, data: {turbo_frame: "_top", turbo_action: "advance"} do
-      table
-        - all_credits = Course.pluck(:credits).sort.uniq
-        - selected_credits = params.try(:[], :filter).try(:[], :credits).present? ? params[:filter][:credits].keys.map(&:to_i) : all_credits
-        - all_credits.each do |option|
-          tr
-            td
-              = check_box_tag "filter[credits][#{option}]", 1, selected_credits.include?(option)
-            td 
-              = label_tag "filter[credits][#{option}]", option
-      .flex.justify-end.items-center.flex-wrap.mt-6
-        = submit_tag "Filter", class:"bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-        button.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded[data-action="click->modal#close"]
-          | Close
+table
+  - all_credits = Course.pluck(:credits).sort.uniq
+  - selected_credits = params.try(:[], :filter).try(:[], :credits).present? ? params[:filter][:credits].keys.map(&:to_i) : all_credits
+  - all_credits.each do |option|
+    tr
+      td
+        = check_box_tag "filter[credits][#{option}]", 1, selected_credits.include?(option)
+      td 
+        = label_tag "filter[credits][#{option}]", option

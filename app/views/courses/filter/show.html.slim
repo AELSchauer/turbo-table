@@ -1,2 +1,11 @@
 = turbo_frame_tag "modal"
-  = render params[:attr], params: params
+  .max-h-screen.w-full.max-w-lg.relative
+    .p-6.bg-white.rounded.shadow
+      .px-8
+        h2.text-xl.mb-4
+          | Filter by #{params[:attr].titleize}
+      = form_with url: root_path, method: :get, data: {turbo_frame: "_top", turbo_action: "advance"} do
+        = render params[:attr], params: params
+        .flex.justify-end.items-center.flex-wrap.mt-6
+          = submit_tag "Filter", class:"btn font-bold py-2 px-4 rounded"
+          = button_tag "Cancel", data: { action: "click->modal#close" }, class: "btn font-bold py-2 px-4 rounded"

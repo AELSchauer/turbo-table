@@ -17,11 +17,16 @@ class CoursesController < ApplicationController
   def filter_courses
     params.try(:[], :filter).try(:permit!)
 
-    filter_by_credits if params.try(:[], :filter).try(:[], :credits).present?
+    filter_by_credits if params.dig(:filter, :credits).present?
+    filter_by_department if params.dig(:filter, :department).present?
   end
 
   def filter_by_credits
     @courses = @courses.where(credits: params[:filter][:credits].keys)
+  end
+
+  def filter_by_department
+    @courses = @courses.where(department_id: params[:filter][:department])
   end
 
   def sort_courses
@@ -32,4 +37,3 @@ class CoursesController < ApplicationController
     @courses = Kaminari.paginate_array(@courses).page(params[:page]).per(25)
   end
 end
-

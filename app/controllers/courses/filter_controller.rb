@@ -4,7 +4,6 @@ class Courses::FilterController < ApplicationController
   end
 
   def filter_params
-    params.try(:[], :filter).try(:[], :credits).try(:permit!)
+    params.dig(:filter, :credits).try(:permit!)
   end
 end
-
