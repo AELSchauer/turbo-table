@@ -7,5 +7,8 @@ import { application } from "./application"
 import SelectAllCheckboxesController from "./select_all_checkboxes_controller"
 application.register("select-all-checkboxes", SelectAllCheckboxesController)
 
+import SelectSiblingInput from "./select_sibling_input_controller"
+application.register("select-sibling-input", SelectSiblingInput)
+
 import { Modal } from "tailwindcss-stimulus-components"
 application.register('modal', Modal)
