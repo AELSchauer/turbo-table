@@ -1,0 +1,7 @@
+= turbo_frame_tag "outreach_type"
+  - if @outreach_type.present?
+    - if @outreach_type == "invitation"
+      = render "outreach_ai/outreach_type/#{@outreach_type}"
+    - else
+      div Tell us more.
+      = text_field_tag "outreach_ai[outreach_type][blurb]"
